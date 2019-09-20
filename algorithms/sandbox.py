@@ -21,7 +21,7 @@ def function_1():
 
 def loop():
     array = [1, 2, 3, 5, 6, 7]
-    for i in reversed(range(len(array) - 3)):
+    for i in range(len(array)):
         print(array[i])
 
 
@@ -45,3 +45,25 @@ def plot():
     plt.xlabel('X')
     plt.ylabel('Y')
     plt.show()
+
+
+def InsertSearh():
+    array = [33, 5, 19, 34, 1, 62, 7, 45, 99, 22,
+             123, 98, 77, 15, 4, 56, 11, 9]
+    size = len(array)
+    # print(size)
+    for index in range(size):
+        for i in reversed(range(size - (size - index))):
+            if array[i + 1] < array[i]:
+                temp = array[i+1]
+                array[i + 1] = array[i]
+                array[i] = temp
+            else:
+                break
+            print(array)
+
+
+def for_range():
+    array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    for i in range(1, len(array)):
+        print(array[i])

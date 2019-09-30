@@ -74,3 +74,70 @@ class pAlgebra:
         n += 1
         print(n)
         return n
+
+
+class Statistics:
+
+    def permuatation(self, n, k):
+        a = math.factorial(n) / math.factorial(n-k)
+        b = 1
+        for i in range(k):
+            c = n - i
+            b *= n - i
+            print(c)
+        print("Version a : %d Version b : %d" % (a, b))
+
+    def plain_factorial(self, a):
+        i = math.factorial(a)
+        print(i)
+
+    def combinations(self, n, k):
+        c = 0
+        self.k = math.factorial(k)
+        self.p = math.factorial(n-k)
+        self.n = math.factorial(n)
+        c = self.n / (self.k * self.p)
+        print("Amount of combinations in permuatation %d" % c)
+
+    def uniqueComb(self, n, k):
+        self.n = math.factorial(n)
+        self.k = math.factorial(k)
+        print(self.n)
+        print(self.k)
+        a = self.n / self.k
+        print("Unique way : %d" % a)
+
+    def practicalTest(self, n):
+        self.n = n - 1
+        a = math.factorial(self.n)
+        a = a * 2
+        print(a)
+
+    def practicalTest_2(self, n, a, b):
+        odd = 0
+        even = 0
+        both = 0
+        for i in range(1, n+1):
+            if((i % a) == 0):
+                even += 1
+            if((i % b) == 0):
+                odd += 1
+            if((i % a) == 0 and (i % b) == 0):
+                both += 1
+        final = (even + odd) - both
+        print("Devisibale by %d = %d" % (a, even))
+        print("Devisibale by %d = %d" % (b, odd))
+        print("Devisibale by both number %d " % both)
+        print("Devisibales %d " % final)
+
+    ''' Probability using combination '''
+
+    def probabilityC(self, tries, options, chance):
+        t_outcomes = math.pow(options, tries)
+        self.tries = math.factorial(tries)
+        self.chance = math.factorial(chance)
+        self.comb = math.factorial(tries - chance)
+        a = self.tries / (self.chance * self.comb)
+        f_prob = (a / t_outcomes) * 100
+        # f_prob = round(f_prob, 9)
+        print("Probability is %f " % f_prob)

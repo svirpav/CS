@@ -1,18 +1,22 @@
 # import numpy as np
-# import sandbox
+import sandbox
 import kmath
 import computer_sciense
 import sorting
+import lottery
 # import asymptotic as asym
 # import plot
 
 ''' Class initalization '''
+
 al = computer_sciense.Binary()
 srt = computer_sciense.SellectionSort()
 insrt = computer_sciense.InsertSearh()
 selSrt = sorting.SellectiveSearch()
 insSrt = sorting.InsertSearh()
 pa = kmath.pAlgebra()
+st = kmath.Statistics()
+lot = lottery.Lottery()
 
 ''' Computer sciense part of the code'''
 
@@ -66,14 +70,14 @@ pa = kmath.pAlgebra()
 # values = [a1, a2]
 # pa.sigma(k, n, values)
 
-a1 = -7
-a2 = 1
-k = 1
-n = 625
-values = [a1, a2]
-[first, last] = pa.sigma(k, n, values)
-print(first, last)
-pa.findSum(first, last, n)
+# a1 = -7
+# a2 = 1
+# k = 1
+# n = 625
+# values = [a1, a2]
+# [first, last] = pa.sigma(k, n, values)
+# print(first, last)
+# pa.findSum(first, last, n)
 
 # [first, last] = pa.findLast(first, step, n)
 # print(first, last)
@@ -82,6 +86,40 @@ pa.findSum(first, last, n)
 # n = pa.findN(first, second, last)
 # pa.findSum(first, last, n)
 
+''' Statistics and probability '''
+
+# st.permuatation(5, 2)
+# st.plain_factorial(4)
+''' => n! / k!*(n - k)! '''
+# st.combinations(8, 3)
+
+# st.uniqueComb(6, 2)
+# st.practicalTest(4)
+# st.practicalTest_2(100, 10, 7)
+
+# st.probabilityC(30, 2, 3)
+
+''' Lottery chanches '''
+
+# y = []
+# x = []
+# for i in range(1, 100):
+#    y.append(lot.lot_1(100.0, i))
+#    x.append(i)
+
+# plot.basicPlot(x, y)
+
+# [num, data] = lot.power_ball(69, 5)
+# print(num)
+# print(data)
+# plot.basicPlot(num, data)
+# amount = 60000000
+# game = 2
+# [games, gpp] = lot.player(amount, game)
+# print(games, gpp)
+
+data = lot.game(5, 69)
+print(data)
 
 '''Sandbox : for testing '''
 # sandbox.function_1()
@@ -89,6 +127,10 @@ pa.findSum(first, last, n)
 # sandbox.plot()
 # sandbox.InsertSearh()
 # sandbox.for_range()
+# sandbox.toInt()
+# sandbox.d2array()
+sandbox.comapreArray()
+
 ''' Sorting examples '''
 
 array = [10, 15, 23, 44, 99, 123, 157, 235, 1, 3, 7, 9, 45, 67, 77, 99, 101,

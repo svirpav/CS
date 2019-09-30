@@ -67,3 +67,30 @@ def for_range():
     array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     for i in range(1, len(array)):
         print(array[i])
+
+
+def toInt():
+    a = float(1 / 5)
+    print(a)
+
+
+def d2array():
+    a = []
+    for i in range(5):
+        a.append(i)
+    b = []
+    for i in reversed(range(5)):
+        b.append(i)
+    c = list(zip(a, b))
+    size = len(c[0])
+    print(size)
+
+
+def comapreArray():
+    a = [1, 2, 3, 4]
+    b = [4, 3, 2, 1]
+    c = [1, 2, 3, 4]
+    if(a == b):
+        print('A = B')
+    elif(a == c):
+        print('A == C')

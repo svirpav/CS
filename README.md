@@ -1,4 +1,4 @@
-#Computer Sciense
+# Computer Sciense
 
 ## Algorithms:
 
@@ -28,7 +28,8 @@
 
 * **Recursive search** :
 
-  * TBD
+  * Permutationa and combination :
+    * **n! / k! * (n-k)!** 
 
 * **Asymptotic notation** : 
 
@@ -48,3 +49,10 @@
 * **Arithmentic sequence** :
 
   * Arithmetic sum => $a_n$ = $a_1 + d(n-1)$, $S_n$ = $\frac{a_1 + a_n}{2} * n$ ,   $n = \frac{a_n - a_1}{d}+1$  => ($S(n) = \frac{n*(n+1)}{2}$)
+  
+* **Statistics and probability **
+
+  * Conting, premutations and combinations:
+    * **Permutation** => A, B, C, D, E to filve different location => 5! => 5 * 4 * 3 * 2 * 1 => 120, but if we have for example only 3 place awaylable it is going to be =>  $\frac{n!}{(n-r)!}$ 
+    * **Fractorial** n! => n * (n-1) * (n-2) *(n - 3) * ... * 1
+    * **Combination** => 6 people for 3 char => $\frac{6!}{(6-3)!}$ => $\frac{720}{6}$ => 120, now we want to 3 out 6 people to see how much combination it might have, $n^ck = \frac{n!}{k!*(n-k)!}$ => $\frac{720}{6 * 6}$ => 20

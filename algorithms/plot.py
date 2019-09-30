@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+# import numpy as np
 
 
 def quadPlot(arrayY, arrayX):
@@ -50,4 +51,12 @@ def dualPlot(arrayX, arrayY, arrayX1, arrayY1):
     ax2.set_title("Polinominal grow")
     ax2.set_xlabel("Input Size")
     ax2.grid(True)
+    plt.show()
+
+
+def basicPlot(x, y):
+    plt.plot(x, y, color='orange', linewidth=2, scaley=True)
+    plt.grid(True)
+    # plt.xticks(np.arange(min(x), max(x)+1, 5.0))
+    # plt.yticks(np.arange(min(y), max(y)+1, 5.0))
     plt.show()

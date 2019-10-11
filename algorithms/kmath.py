@@ -141,3 +141,60 @@ class Statistics:
         f_prob = (a / t_outcomes) * 100
         # f_prob = round(f_prob, 9)
         print("Probability is %f " % f_prob)
+
+    ''' Coins probability '''
+
+    def coin(self, flips, heads):
+        i_min = 0
+        i_pos = math.pow(2, flips)
+        x = math.factorial(flips)
+        y = math.factorial(flips - heads)
+        z = math.factorial(heads)
+        combination = x/(y * z)
+        for i in range(1, int(combination+1)):
+            if((combination % i) == 0 and (i_pos % i) == 0):
+                i_min = i
+        combination = combination / i_min
+        i_pos = i_pos / i_min
+        return combination, i_pos
+
+    def fair_coin(slef, flips, tails):
+        a = math.pow(2, flips)
+        b = math.factorial(flips)
+        c = math.factorial(tails)
+        d = math.factorial(flips - tails)
+        e = b / (c * d)
+        f = e / a
+        print(f)
+
+    def sudents(self, stud, by, gy, grp):
+        a = math.factorial(stud)
+        b = math.factorial(grp)
+        c = math.factorial(stud - grp)
+        d = a / (b * c)
+        print(d)
+        x = math.factorial(by)
+        y = math.factorial(by - grp)
+        z = x / (b * y)
+        print(z)
+        print(z/d)
+
+    ''' Conditional Probability and Compbination '''
+    def cpc(self, fair, unfair, n, k):
+        sum = fair + unfair
+        pr_a = fair / sum
+        pr_b = unfair / sum
+        print("Prob A : %f " % pr_a)
+        print('Prob B : %f ' % pr_b)
+        fpb = \
+            (math.factorial(n) / (math.factorial(k)
+             * math.factorial(n-k))) / math.pow(2, n)
+        print('Fair coinf probab 4/6 : %f' % fpb)
+        ufpb = \
+            (math.factorial(n) / (math.factorial(k) * math.factorial(n-k)))\
+            * (math.pow(0.8, 4) * math.pow(0.2, 2))
+        print('unfair probability 4/6 : %f' % ufpb)
+        x = pr_a * fpb + pr_b * ufpb
+        print('Total probability getting 4/6 : %f' % x)
+        y = (fpb * pr_a) / x
+        print('Probabili to have 4(failr)/6 : %f' % y)

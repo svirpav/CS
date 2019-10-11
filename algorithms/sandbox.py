@@ -94,3 +94,51 @@ def comapreArray():
         print('A = B')
     elif(a == c):
         print('A == C')
+
+
+def binominal(n, k):
+    a = math.factorial(n)
+    b = math.factorial(k)
+    c = a / b
+    print('A = %d, B = %d, C = %d ' % (a, b, c))
+    x = math.factorial(n - k)
+    y = a / (b * x)
+    print('A = %d, B = %d, Y = %d ' % (a, b, y))
+
+
+def power2(n):
+    a = math.pow(2, n)
+    print("2^n = %d " % a)
+
+
+def s_roundup(a, b):
+    x = [a, b]
+    print(x)
+    if(x[0] > x[1]):
+        f = math.floor(x[0])
+        g = math.ceil(x[1])
+    else:
+        f = math.ceil(x[0])
+        g = math.floor(x[1])
+    print('ceil %f : %f' % (a, f))
+    print('floor %f : %f ' % (b, g))
+
+
+def combination(a, b, c):
+    n = math.factorial(a)
+    k = math.factorial(b)
+    n_k = math.factorial(a - b)
+    n_1 = math.factorial(c)
+    k_1 = math.factorial(a)
+    n_1_k = math.factorial(c - a)
+    comb = n / (k * n_k)
+    all_variations = n_1 / (k_1 * n_1_k)
+    print(comb, all_variations)
+
+
+def birthday(people):
+    a = math.pow(365, people)
+    b = math.factorial(365)
+    c = math.factorial(365 - people)
+    d = ((b / c) / a) * 100
+    print(d)

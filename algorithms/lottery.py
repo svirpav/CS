@@ -9,26 +9,29 @@ class Lottery:
         f_prob = (entry / i_entries) * 100
         return f_prob
 
-    def power_ball(self, numbers, b_positions):
-        fac_numbers = math.factorial(numbers)
-        fac_positions = math.factorial(b_positions)
-        fac_combinations = math.factorial(numbers - b_positions)
-        un_combinations = fac_numbers / (fac_positions * fac_combinations)
-        print("factorial for unique combinations %d " % un_combinations)
-        prob = []
-        num = []
+    ''' Add power ball '''
+    def power_ball(self, numbers_a, b_positions):
+        n_win_num = numbers_a - b_positions
+        n_num_fac = math.factorial(n_win_num)
+        pos_fac = math.factorial(b_positions)
+        num_fac = math.factorial(numbers_a)
+        full_num_com = num_fac / (math.factorial(b_positions)
+                                  * math.factorial(numbers_a - b_positions))
+        data_1 = []
+        data_2 = []
+        print(full_num_com)
         for i in range(1, b_positions):
-            a = numbers - i
-            b = b_positions - i
-            a_fac = math.factorial(a)
-            b_fac = math.factorial(b)
-            ab_fac = math.factorial(a - b)
-            comb = float(a_fac / (b_fac * ab_fac))
-            prob.append(float((comb / un_combinations) * 100))
-            num.append(i)
-        prob.append(float((1.0 / un_combinations) * 100))
-        num.append(b_positions)
-        return num, prob
+            a = pos_fac / (math.factorial(i) * math.factorial(b_positions-i))
+            tmp = b_positions - i
+            b = n_num_fac / (math.factorial(tmp)
+                             * math.factorial(n_win_num - tmp))
+            data_1.append(a)
+            data_2.append(b)
+        prob = []
+        for i in range(len(data_1)):
+            a = (data_1[i] * data_2[i]) / full_num_com
+            prob.append(a)
+        return prob
 
     def player(self, amount, game):
         games = float(amount / game)
@@ -36,13 +39,16 @@ class Lottery:
         gpp = float(games / population)
         return games, gpp
 
+    ''' Needs work '''
+
     def game(self, size, numbers):
         a = [0, 0, 0, 0, 0]
         cycle = 0
-        win = [15, 23, 34, 51, 55]
+        # win = [15, 23, 34, 51, 55]
         while (True):
             for i in range(size):
                 a[i] = random.randint(1, 69)
                 cycle = cycle + 1
-                if (a == win):
+                print(a)
+                if (cycle > 10000000):
                     return a

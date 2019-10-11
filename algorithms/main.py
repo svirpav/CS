@@ -1,5 +1,5 @@
 # import numpy as np
-import sandbox
+# import sandbox
 import kmath
 import computer_sciense
 import sorting
@@ -93,33 +93,30 @@ lot = lottery.Lottery()
 ''' => n! / k!*(n - k)! '''
 # st.combinations(8, 3)
 
-# st.uniqueComb(6, 2)
+# st.uniqueComb(5, 4)
 # st.practicalTest(4)
 # st.practicalTest_2(100, 10, 7)
 
 # st.probabilityC(30, 2, 3)
+# [a, b] = st.coin(4, 2)
+# print('Probability is %d/%d' % (a, b))
+# st.cpc(5, 10, 6, 4)
+st.fair_coin(5, 3)
+st.sudents(7, 5, 2, 3)
+
 
 ''' Lottery chanches '''
 
-# y = []
-# x = []
-# for i in range(1, 100):
-#    y.append(lot.lot_1(100.0, i))
-#    x.append(i)
-
+# y = lot.power_ball(69, 5)
+# x = [1, 2, 3, 4]
 # plot.basicPlot(x, y)
-
-# [num, data] = lot.power_ball(69, 5)
-# print(num)
-# print(data)
-# plot.basicPlot(num, data)
 # amount = 60000000
 # game = 2
 # [games, gpp] = lot.player(amount, game)
 # print(games, gpp)
 
-data = lot.game(5, 69)
-print(data)
+# data = lot.game(5, 69)
+# print(data)
 
 '''Sandbox : for testing '''
 # sandbox.function_1()
@@ -129,7 +126,12 @@ print(data)
 # sandbox.for_range()
 # sandbox.toInt()
 # sandbox.d2array()
-sandbox.comapreArray()
+# sandbox.comapreArray()
+# sandbox.binominal(5, 3)
+# sandbox.power2(2)
+# sandbox.s_roundup(5.3, 1.8)
+# sandbox.combination(5, 3, 69)
+# sandbox.birthday(90)
 
 ''' Sorting examples '''
 

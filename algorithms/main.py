@@ -1,9 +1,10 @@
 # import numpy as np
-# import sandbox
+import sandbox
 import kmath
 import computer_sciense
 import sorting
 import lottery
+# import drawing
 # import asymptotic as asym
 # import plot
 
@@ -17,6 +18,10 @@ insSrt = sorting.InsertSearh()
 pa = kmath.pAlgebra()
 st = kmath.Statistics()
 lot = lottery.Lottery()
+rc = computer_sciense.Recursion()
+pl = computer_sciense.Pallindrome()
+efp = computer_sciense.EF_Power()
+tw = computer_sciense.Tower()
 
 ''' Computer sciense part of the code'''
 
@@ -101,8 +106,8 @@ lot = lottery.Lottery()
 # [a, b] = st.coin(4, 2)
 # print('Probability is %d/%d' % (a, b))
 # st.cpc(5, 10, 6, 4)
-st.fair_coin(5, 3)
-st.sudents(7, 5, 2, 3)
+# st.fair_coin(5, 3)
+# st.sudents(7, 5, 2, 3)
 
 
 ''' Lottery chanches '''
@@ -132,7 +137,8 @@ st.sudents(7, 5, 2, 3)
 # sandbox.s_roundup(5.3, 1.8)
 # sandbox.combination(5, 3, 69)
 # sandbox.birthday(90)
-
+# sandbox.popap()
+sandbox.findItem()
 ''' Sorting examples '''
 
 array = [10, 15, 23, 44, 99, 123, 157, 235, 1, 3, 7, 9, 45, 67, 77, 99, 101,
@@ -142,3 +148,33 @@ array = [10, 15, 23, 44, 99, 123, 157, 235, 1, 3, 7, 9, 45, 67, 77, 99, 101,
 
 # array = insSrt.inserSearch(array)
 # print(array)
+
+''' Recursive '''
+# a = rc.method_1(5)
+# print(a)
+# a = rc.rc_factorial(25)
+# print(a)
+# data = pl.isPallindrome('hello')
+# print(data)
+# data = pl.isPallindrome('a')
+# print(data)
+# data = pl.isPallindrome('rator')
+# print(data)
+# a = rc.rc_power(2, 15)
+# print(a)
+# a = rc.recursion(5)
+# print(a)
+# print(a)
+# a = efp.ef_power(3, 0)
+# print(a)
+# a = efp.ef_power(3, 1)
+# print(a)
+# a = efp.ef_power(3, 3)
+# print(a)
+# a = efp.ef_power(3, -3)
+# print(a)
+# drawing.drawSquare()
+
+
+''' Hanoi Tower '''
+tw.solveTower(5, 'Intial call')

@@ -142,3 +142,18 @@ def birthday(people):
     c = math.factorial(365 - people)
     d = ((b / c) / a) * 100
     print(d)
+
+
+def popap():
+    a = [1, 2, 3]
+    b = []
+    # c = []
+    b.append(a.pop(0))
+    print(a, b)
+
+
+def findItem():
+    a = [1, 2, 3, 4, 5]
+    b = []
+    print(len(b))
+    print(a[len(a)-1])

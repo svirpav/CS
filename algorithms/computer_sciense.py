@@ -1,5 +1,6 @@
 import numpy as np
 import random
+import math
 
 
 class Binary:
@@ -161,3 +162,89 @@ class InsertSearh:
                 array[i+1] = value
                 break
         print(array)
+
+
+class Recursion:
+
+    def method_1(slef, n):
+        result = n * math.factorial(n - 1)
+        return result
+
+    def rc_factorial(self, n):
+        if(n == 0):
+            return 1
+        return n * self.rc_factorial(n-1)
+
+    def rc_power(self, x, n):
+        # base_case
+        if(n == 1):
+            return 1
+        # recursion
+        print('call : %d' % n)
+        return x * self.rc_power(x, n-1)
+
+    def recursion(self, n):
+        if (n > 0):
+            print('Call before recusrsion : %d' % n)
+            self.recursion(n-1)
+            print('call after recusrsion : %d' % n)
+
+
+class EF_Power:
+
+    def isOdd(self, n):
+        return not self.isEven(n)
+
+    def isEven(self, n):
+        return ((n % 2) == 0)
+
+    def ef_power(self, x, n):
+        # base case
+        if(n == 0):
+            return 1
+        # is isOdd
+        elif(n < 0):
+            return 1 / self.ef_power(x, abs(n))
+        elif(self.isOdd(n)):
+            return x * self.ef_power(x, n - 1)
+        # is Even
+        elif(self.isEven(n)):
+            a = self.ef_power(x, n/2)
+            return a * a
+
+
+class Pallindrome:
+
+    def lastCharacter(self, str):
+        return str[-1]
+
+    def firstCharacter(self, str):
+        return str[0]
+
+    def middleCharacters(self, str):
+        return str[1:-1]
+
+    def isPallindrome(self, str):
+        # base case nr. 1
+        if(len(str) <= 1):
+            return True
+        # base case nr.2
+        elif (self.firstCharacter(str) != self.lastCharacter(str)):
+            return False
+        return self.isPallindrome(self.middleCharacters(str))
+
+
+''' Tower of Hanoi '''
+
+
+class Tower:
+
+    def solveTower(self, n, name):
+        print('Name : %s n = %d' % (name, n))
+        # base_case
+        if(n == 0):
+            print('Bottom of %s' % name)
+            return 1
+        self.solveTower(n - 1, 'First Recusrsion')
+        print('Next recursion called with n = %d - 1 (%d)' % (n, n-1))
+        self.solveTower(n - 1, 'Second Recursion')

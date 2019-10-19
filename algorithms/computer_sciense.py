@@ -239,12 +239,69 @@ class Pallindrome:
 
 class Tower:
 
-    def solveTower(self, n, name):
-        print('Name : %s n = %d' % (name, n))
+    def __init__(self):
+        A = [7, 6, 5, 4, 3, 2, 1]
+        B = []
+        C = []
+        self.a = A
+        self.b = B
+        self.c = C
+
+    def pegToNumber(self, peg):
+        if(peg == 'A'):
+            a = 0
+            return a
+        elif(peg == 'B'):
+            a = 1
+            return a
+        elif(peg == 'C'):
+            a = 2
+            return a
+
+    def numToPeg(self, num):
+        if(num == 0):
+            return 'A'
+        elif(num == 1):
+            return 'B'
+        elif(num == 2):
+            return 'C'
+
+    def getSpare(self, fromPeg, toPeg):
+        peg1 = self.pegToNumber(fromPeg)
+        peg2 = self.pegToNumber(toPeg)
+        a = 3 - peg1 - peg2
+        return self.numToPeg(a)
+
+    def moveDisk(self, fromPeg, toPeg):
+        if(fromPeg == 'A'):
+            if(toPeg == 'B'):
+                self.b.append(self.a.pop())
+                print(self.a, self.b, self.c)
+            else:
+                self.c.append(self.a.pop())
+                print(self.a, self.b, self.c)
+        elif(fromPeg == 'B'):
+            if(toPeg == 'A'):
+                self.a.append(self.b.pop())
+                print(self.a, self.b, self.c)
+            else:
+                self.c.append(self.b.pop())
+                print(self.a, self.b, self.c)
+        elif(fromPeg == 'C'):
+            if(toPeg == 'A'):
+                self.a.append(self.c.pop())
+                print(self.a, self.b, self.c)
+            else:
+                self.b.append(self.c.pop())
+                print(self.a, self.b, self.c)
+
+    def solveTower(self, n, fromPeg, toPeg):
         # base_case
         if(n == 0):
-            print('Bottom of %s' % name)
             return 1
-        self.solveTower(n - 1, 'First Recusrsion')
-        print('Next recursion called with n = %d - 1 (%d)' % (n, n-1))
-        self.solveTower(n - 1, 'Second Recursion')
+        # print('Recursion called with : %s -> %s' % (fromPeg, toPeg))
+        spare = self.getSpare(fromPeg, toPeg)
+        # print('Got Spare %s ' % spare)
+        self.solveTower(n - 1, fromPeg, spare)
+        self.moveDisk(fromPeg, toPeg)
+        self.solveTower(n - 1, spare, toPeg)

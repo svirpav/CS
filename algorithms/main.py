@@ -138,7 +138,7 @@ tw = computer_sciense.Tower()
 # sandbox.combination(5, 3, 69)
 # sandbox.birthday(90)
 # sandbox.popap()
-sandbox.findItem()
+# sandbox.findItem()
 ''' Sorting examples '''
 
 array = [10, 15, 23, 44, 99, 123, 157, 235, 1, 3, 7, 9, 45, 67, 77, 99, 101,
@@ -177,4 +177,4 @@ array = [10, 15, 23, 44, 99, 123, 157, 235, 1, 3, 7, 9, 45, 67, 77, 99, 101,
 
 
 ''' Hanoi Tower '''
-tw.solveTower(5, 'Intial call')
+tw.solveTower(7, 'A', 'B')

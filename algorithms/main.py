@@ -1,9 +1,10 @@
 # import numpy as np
-import sandbox
+# import sandbox
 import kmath
 import computer_sciense
 import sorting
 import lottery
+import complex
 # import drawing
 # import asymptotic as asym
 # import plot
@@ -22,6 +23,8 @@ rc = computer_sciense.Recursion()
 pl = computer_sciense.Pallindrome()
 efp = computer_sciense.EF_Power()
 tw = computer_sciense.Tower()
+dcm = computer_sciense.DivConMe()
+cpx = complex.nLogN()
 
 ''' Computer sciense part of the code'''
 
@@ -125,7 +128,7 @@ tw = computer_sciense.Tower()
 
 '''Sandbox : for testing '''
 # sandbox.function_1()
-# sandbox.loop()
+# ssandbox.loop()
 # sandbox.plot()
 # sandbox.InsertSearh()
 # sandbox.for_range()
@@ -139,10 +142,28 @@ tw = computer_sciense.Tower()
 # sandbox.birthday(90)
 # sandbox.popap()
 # sandbox.findItem()
+# sandbox.floVSceil()
+# sandbox.mulAssign()
+# array = [9, 0, 8, 1, 4, 3, 6, 5]
+# print(array)
+# array = sandbox.workList(array, 0, 0, 1)
+# print(array)
+# array = sandbox.workList(array, 2, 2, 3)
+# print(array)
+# array = sandbox.workList(array, 0, 1, 3)
+# print(array)
+# array = sandbox.workList(array, 4, 4, 5)
+# print(array)
+# array = sandbox.workList(array, 6, 6, 7)
+# print(array)
+# array = sandbox.workList(array, 5, 4, 7)
+# print(array)
+# array = sandbox.workList(array, 0, 3, 7)
+# print(array)
 ''' Sorting examples '''
 
-array = [10, 15, 23, 44, 99, 123, 157, 235, 1, 3, 7, 9, 45, 67, 77, 99, 101,
-         505, 33, 21, 17, 19, 59, 323, 289, 103, 19, 0, -1, 2, -9, 59, 1000]
+# array = [10, 15, 23, 44, 99, 123, 157, 235, 1, 3, 7, 9, 45, 67, 77, 99, 101,
+#         505, 33, 21, 17, 19, 59, 323, 289, 103, 19, 0, -1, 2, -9, 59, 1000]
 # array = selSrt.sellectiveSearch(array)
 # print(array)
 
@@ -177,4 +198,12 @@ array = [10, 15, 23, 44, 99, 123, 157, 235, 1, 3, 7, 9, 45, 67, 77, 99, 101,
 
 
 ''' Hanoi Tower '''
-tw.solveTower(7, 'A', 'B')
+# tw.solveTower(10, 'A', 'B')
+
+
+''' Divide Conquer Merge '''
+a = [15, 1, 10, 8, 35, 0, 5, 2]
+# x = cpx.complex(len(a))
+# print(x)
+a, c = dcm.divideArray(a, 0, len(a)-1)
+print(a, c)

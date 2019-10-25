@@ -23,6 +23,9 @@ def loop():
     array = [1, 2, 3, 5, 6, 7]
     for i in range(len(array)):
         print(array[i])
+        if(i == 3):
+            break
+    print('after b')
 
 
 def plot():
@@ -157,3 +160,28 @@ def findItem():
     b = []
     print(len(b))
     print(a[len(a)-1])
+
+
+def floVSceil():
+    for i in range(10):
+        a = math.ceil(i / 2)
+        b = math.floor(i / 2)
+        print(i, a, b)
+
+
+def mulAssign():
+    p = 0
+    q = 0
+    r = 1
+    c = p, q, r
+    print(c)
+
+
+def workList(array, s, m, e):
+    for i in range(m+1, e+1):
+        key = array[i]
+        for j in reversed(range(s, i)):
+            if(key < array[j]):
+                array[j], array[j+1] = key, array[j]
+                # print('move', array)
+    return array

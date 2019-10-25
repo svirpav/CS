@@ -240,7 +240,7 @@ class Pallindrome:
 class Tower:
 
     def __init__(self):
-        A = [7, 6, 5, 4, 3, 2, 1]
+        A = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
         B = []
         C = []
         self.a = A
@@ -305,3 +305,101 @@ class Tower:
         self.solveTower(n - 1, fromPeg, spare)
         self.moveDisk(fromPeg, toPeg)
         self.solveTower(n - 1, spare, toPeg)
+
+
+''' Divide Conquer Merge '''
+
+
+class DivConMe:
+
+    def mergeArray(self, array, s, m, e):
+        # print('enter')
+        c = 0
+        # print(c)
+        for i in range(m+1, e+1):
+            key = array[i]
+            c = c + 1
+            # print(c)
+            for j in reversed(range(s, i)):
+                c = c + 1
+                # print(c)
+                if(key < array[j]):
+                    array[j], array[j+1] = key, array[j]
+                    # print('move', array)
+            # print('end')
+        # print(c)
+        # print('exit')
+        return array, c
+
+    def mergeArray_2(self, array, s, m, e):
+        a = array[s:m+1]
+        b = array[m+1:e+1]
+        p = s
+        k = 0
+        call = 0
+        # print('sorting', a, b)
+        for i in range(len(a)):
+            # print('checking', a[i])
+            call = call + 1
+            for j in range(k, len(b)):
+                # print('comparing', a[i], b[j])
+                call = call + 1
+                if(a[i] > b[j]):
+                    array[p] = b[j]
+                    k = j + 1
+                    p = p + 1
+                elif(a[i] < b[j]):
+                    array[p] = a[i]
+                    p = p + 1
+                    break
+            if(k == len(b)):
+                array[p] = a[i]
+                p = p + 1
+
+        return array, call
+
+    def mergeArray_3(self, array, s, m, e):
+        k = s
+        i = 0
+        j = 0
+        low = array[s:m+1]
+        high = array[m+1:e+1]
+        # print(low, high)
+        while(i <= m-s and j < e-m):
+            # print('comparing', low[i], high[j])
+            if(low[i] <= high[j]):
+                # print('inserting low', low[i])
+                array[k] = low[i]
+                # print(array)
+                k += 1
+                i += 1
+            else:
+                # print('inserting high', high[j])
+                array[k] = high[j]
+                # print(array)
+                k += 1
+                j += 1
+        while(i < len(low)):
+            # print('Inserting left low', low[i])
+            array[k] = low[i]
+            # print(array)
+            k += 1
+            i += 1
+        while(j < len(high)):
+            print('Inserting left high', high[j])
+            array[k] = high[j]
+            # print(array)
+            k += 1
+            j += 1
+        return array
+
+    def divideArray(self, array, s, e):
+        if(s < e):
+            m = s + math.floor((e - s) / 2)
+            self.divideArray(array, s, m)
+            self.divideArray(array, m+1, e)
+            # print(s, m, e)
+            array = self.mergeArray_3(array, s, m, e)
+            # array, call = self.mergeArray_2(array, s, m, e)
+            # array, c = self.mergeArray(array, s, m, e)
+            return array, 0

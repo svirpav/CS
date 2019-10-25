@@ -58,6 +58,152 @@
     * **Permutation** => A, B, C, D, E to filve different location => 5! => 5 * 4 * 3 * 2 * 1 => 120, but if we have for example only 3 place awaylable it is going to be =>  $\frac{n!}{(n-r)!}$ 
     * **Fractorial** n! => n * (n-1) * (n-2) *(n - 3) * ... * 1
     * **Combination** => 6 people for 3 char => $\frac{6!}{(6-3)!}$ => $\frac{720}{6}$ => 120, now we want to 3 out 6 people to see how much combination it might have, $n^ck = \frac{n!}{k!*(n-k)!}$ => $\frac{720}{6 * 6}$ => 20
+  
+* **Divide and Conquer Algorithms**
+
+s = 0, m = 0, e = 7
+
+s = start
+
+m = midpoint
+
+e = end
+
+**initial call** : devideArray(**e=0**, **e=7**)
+
+> if(**s=0** < **e=7**):
+>
+> > m = 0 + math.floor((7-0) / 2 ) => 3
+> >
+> > divideArray(**s=0**, **e=m(3)**)
+> >
+> > > if(**s=0** < **e=3** )
+> > >
+> > > m = 0 + math.floor((3-0) / 2) => 1
+> > >
+> > > divideArray(**s=0**, **e=m(1)**)
+> > >
+> > > > if(**s=0** < **e=1**):
+> > > >
+> > > > m = 0 + math.floor((1-0) / 2) => 0
+> > > >
+> > > > divideArray(**s=0**, **e=m(0)**
+> > > >
+> > > > > if(**s= 0 < e = 0**) : ***EXIT - condition not met***
+> > > > >
+> > > > > ***This is the base case for first recursion divideArray(start, end)***
+> > > >
+> > > > divideArray(**s=m+1(1), e=1**)
+> > > >
+> > > > > if(**s=1 < e = 1**) : ***EXIT - condition not met***
+> > > > >
+> > > > > ***This is the base case for second recursion divideArray(mid+ 1, end)*** 
+> > > >
+> > > > mergeArray(**s=0**, **m=0**, **e=1**) => ***Sort first sub array[i[0], i[1]]***
+> > >
+> > > divideArray(**s=m+1(2)**, **e=3**)
+> > >
+> > > > if(**s=2** < **e=3**):
+> > > >
+> > > > > m = 2 + math.floor((3-2) / 2) => 2
+> > > > >
+> > > > > divideArray(**s=2**, **e=m(2)**)
+> > > > >
+> > > > > > if(**s=2** > **e=2**) => ***EXIT - Condition not met***
+> > > > > >
+> > > > > > ***Base case for first recursion divideArray(start, mid)***
+> > > > >
+> > > > > divideArray(**s=m+1(3)**, **e=3**)
+> > > > >
+> > > > > > if(**s=3** < **e=3**) => ***EXIT - Condition not met***
+> > > > > >
+> > > > > > ***Base case for second recursion divideArray(mid+1, end)***
+> > > > >
+> > > > > mergeArray(**s=2**, **m=2**, **e=3**)
+> > >
+> > > mergeArray(**s= 0, m = 1, e = 3**)
+> >
+> > divideArray(**s=m+1(4)**, **e=7**)
+> >
+> > > if(**s=4 < e=7**):
+> > >
+> > > > m = 4 + math.floor((7-4) / 2) => 5
+> > > >
+> > > > divideArray(**s=4, e=m(5)**)
+> > > >
+> > > > > if(**s=4 < e=5**):
+> > > > >
+> > > > > > m = 4 + math.floor((5-4) / 2) => 4
+> > > > > >
+> > > > > > divideArray(**s=4, e=m(4)**)
+> > > > > >
+> > > > > > > if(**s=4 < e=4**) => ***EXIT - condotion not met***
+> > > > > > >
+> > > > > > > ***Base case for the first recursion divideArray(start, mid)***
+> > > > > >
+> > > > > > divideArray(**s=m+1(5), e=(5)**)
+> > > > > >
+> > > > > > > if(**s=5 < e=5**)	=> ***EXIT - condition not met***
+> > > > > > >
+> > > > > > > ***Base case for the second recursion divideArray(mid+1, e)***
+> > > > > >
+> > > > > > mergeArray(**s = 4, m=4, e=5**)
+> > > >
+> > > > divideArray(**s = m+1(6), e = 7**)
+> > > >
+> > > > > if(**s = 6 < e = 7**)
+> > > > >
+> > > > > > m = 6 + math.floor((7-6) / 2) => 6
+> > > > > >
+> > > > > > divideArray(**s=6, e=m(6)**)
+> > > > > >
+> > > > > > > if(**s=6 < e=6**)	=> ***EXIT - condition not met***
+> > > > > > >
+> > > > > > > ***Base case for firs recursion met divideArray(start, mid)***
+> > > > > >
+> > > > > > divideArray(**s=m+1(7), e = 7**)
+> > > > > >
+> > > > > > > if(**s = 7 < e = 7**): ***EXIT - condition not met***
+> > > > > > >
+> > > > > > > ***Base case for second recursion divideArray(mid+1, e)***
+> > > > > >
+> > > > > > mergeArray(**s=6, m = 6, e = 7**
+> > > >
+> > > > mergeArray(**s = 4, m = 5, e = 7**)
+> >
+> > mergeArray(**s = 0, m = 3, e = 7**)	=> *** The last call in this recursion => merge initial array [0...7]
+
+
+
+### Example for merge function ***mergeArray(array, start, mid, end)***
+
+Initial array [1, 3, 35, 44, 0, 2, 12, 15]
+
+slice the arry in two arrays
+
+a[1, 3, 35, 44] : b[0, 2, 12, 15] => **a[i] : b[j]**
+
+a[**1**, 3, 35, 44] >< b[**0**, 2, 12, 15] => **a[0]	b[0]** => array[0]
+
+a[**1**, 3, 35, 44] >< b[**x**, **2**, 12, 15] => **a[0]	b[1]** => array[0, 1]
+
+a[**x**, **3**, 35, 44] >< b[**x**, **2**, 12, 15] => **a[1]	b[1]** => array[0, 1, 2]
+
+a[**x**, **3**, 35, 44] >< b[**x**, **x**, **12**, 15] => **a[1]	b[2]** => array[0, 1, 2, 3]
+
+a[**x**, **x**, **35**, 44] >< b[**x**, **x**, **12**, 15] => **a[2]	b[2]** => array[0, 1, 2, 3, 12]
+
+a[**x**, **x**, **35**, 44] >< b[**x**, **x**, **x**, **15**] => **a[2]	b[3]** => array[0, 1, 2, 3, 12, 15]
+
+a[**x**, **x**, **35**, 44] >< b[**x**, **x**, **x**, **x**] => **a[2]	b[3]** => array[0, 1, 2, 3, 12, 15, 35]
+
+a[**x**, **x**, **x**, **44**] >< b[**x**, **x**, **x**, **x**] => **a[3]	b[3]** => array[0, 1, 2, 3, 12, 15, 35, 44]
+
+
+
+
+
+
 
 ## Hanoi Tower
 
@@ -196,4 +342,3 @@ n = 5 => steps after first recursion
 > > > > > move(1) **move disk nr.:1**		**DONE(16)**
 > > > > >
 > > > > > recursion_2(1-1) => exit **return 1**
-

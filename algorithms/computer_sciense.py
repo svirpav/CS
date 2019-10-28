@@ -403,3 +403,28 @@ class DivConMe:
             # array, call = self.mergeArray_2(array, s, m, e)
             # array, c = self.mergeArray(array, s, m, e)
             return array, 0
+
+
+'''         Quick Sort  '''
+
+
+class QuickSort:
+
+    def partition(self, array, s, e):
+        q = s
+        key = array[e]
+        # print('call before part ', key, array[s:e+1])
+        for i in range(s, e):
+            if(key > array[i]):
+                array[i], array[q] = array[q], array[i]
+                q += 1
+        array[q], array[e] = array[e], array[q]
+        # print('call after partition', q, array)
+        return q
+
+    def quickSort(self, array, s, e):
+        if(0 < (e - s)):
+            q = self.partition(array, s, e)
+            array = self.quickSort(array, s, q-1)
+            array = self.quickSort(array, q+1, e)
+        return array

@@ -24,6 +24,7 @@ pl = computer_sciense.Pallindrome()
 efp = computer_sciense.EF_Power()
 tw = computer_sciense.Tower()
 dcm = computer_sciense.DivConMe()
+qsort = computer_sciense.QuickSort()
 cpx = complex.nLogN()
 
 ''' Computer sciense part of the code'''
@@ -127,6 +128,7 @@ cpx = complex.nLogN()
 # print(data)
 
 '''Sandbox : for testing '''
+
 # sandbox.function_1()
 # ssandbox.loop()
 # sandbox.plot()
@@ -160,6 +162,8 @@ cpx = complex.nLogN()
 # print(array)
 # array = sandbox.workList(array, 0, 3, 7)
 # print(array)
+# sandbox.quickSort()
+
 ''' Sorting examples '''
 
 # array = [10, 15, 23, 44, 99, 123, 157, 235, 1, 3, 7, 9, 45, 67, 77, 99, 101,
@@ -171,6 +175,7 @@ cpx = complex.nLogN()
 # print(array)
 
 ''' Recursive '''
+
 # a = rc.method_1(5)
 # print(a)
 # a = rc.rc_factorial(25)
@@ -198,12 +203,20 @@ cpx = complex.nLogN()
 
 
 ''' Hanoi Tower '''
+
 # tw.solveTower(10, 'A', 'B')
 
 
 ''' Divide Conquer Merge '''
-a = [15, 1, 10, 8, 35, 0, 5, 2]
+
+# a = [15, 1, 10, 8, 35, 0, 5, 2]
 # x = cpx.complex(len(a))
 # print(x)
-a, c = dcm.divideArray(a, 0, len(a)-1)
-print(a, c)
+# a, c = dcm.divideArray(a, 0, len(a)-1)
+# print(a, c)
+
+'''     Quick Sort      '''
+
+a = [9, 7, 5, 12, 0, 3, 14, 23, 10, 1, 11, 6]
+b = qsort.quickSort(a, 0, len(a) - 1)
+print(a, b)

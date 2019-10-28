@@ -185,3 +185,47 @@ def workList(array, s, m, e):
                 array[j], array[j+1] = key, array[j]
                 # print('move', array)
     return array
+
+
+def quickSort():
+    a = [12, 7, 14, 9, 10, 11]
+    x = []
+    y = []
+    ''' Copy in two different array & then merge '''
+    key = a[-1]
+    for i in range(len(a)-1):
+        if key < a[i]:
+            y.append(a[i])
+        else:
+            x.append(a[i])
+    print(x, y)
+    z = x + y
+    print(z)
+
+    ''' Original array compare and swap right to left'''
+    q = 0
+    for i in range(len(a) - 1):
+        if(key > a[i]):
+            a[i], a[q] = a[q], a[i]
+            q += 1
+    print(a)
+    print(q)
+    a[q], a[-1] = a[-1], a[q]
+    print(a)
+
+    ''' EXP version of compare and Swap '''
+    print('EXP')
+    x = [9, 7, 5, 8, 14, 0, 3, 2, 23, 10, 12, 6]
+    q = 0
+    key = x[-1]
+    j = (len(x) - 1) - 1
+    call = 0
+    while(j > q):
+        # print(j, q)
+        call += 1
+        if(key < x[j]):
+            j -= 1
+        elif(key > x[j]):
+            x[q], x[j] = x[j], x[q]
+            q += 1
+    print(x, q, call)

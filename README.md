@@ -175,6 +175,88 @@ e = end
 
 
 
+### Quick sort - programm flow
+
+array[9, 7, 5, 11, 12, 2, 14, 3, 10, 6]
+
+* ***Intial call***  quickSort(array, p(0), r-1(9))
+
+> if(***0 < r(9)-p(0) = 9***) : ***r = 9***
+>
+> > q = partition(array, p, r)	=> ***q = 3***	[9, 7, 5, 11, 12, 2, 14, 3, 10, **6**]	=>	[5, 2, 3, **6**, 9, 7, 11, 14, 12, 10]
+> >
+> > quickSort(***array, p = 0, r = q-1(2)***)	=> ***This is first time caling recursion***
+> >
+> > > if(***1 < (r(2) - p(0)) = 2***):  ***r = 2***
+> > >
+> > > > q = partition(***array, p = 0, r=2***)	=> ***q = 1***	[5, 2, **3**]	=> [2, **3**, 5]
+> > > >
+> > > > quickSort(***array, p = 0, r = q-1(0))***
+> > > >
+> > > > > if(***0 < (r(0) - p(0))***):	=> ***EXIT - condition not met***
+> > > > >
+> > > > > ***This is the base case for first recursion quickSort(array, p, r = q -1)***
+> > > >
+> > > > quickSort(***array, p=q+1(2), r = 2*** )
+> > > >
+> > > > > if(**0 < (r(2) - p(2))**):	=> ***EXIT - condition not met***
+> > > > >
+> > > > > ***This is the exit from second recursion quickSort(array, p = q+1, r)***
+> >
+> > quickSort(**array, p = q+1(4), r = 9**)
+> >
+> > > if(**0 < (r(9) - p(4))**):	=> **r = 9**
+> > >
+> > > > q = partitioning(**array, p = 4, r = 9**)	=> **q = 2**	[9, 7, 11, 12, 14, **10**]	=>	[9, 7, **10**, 11,14, 12] 
+> > > >
+> > > > quickSort(**array, p = 4, r = q+1(6)**)
+
+
+
+#### Partitioning Algorith
+
+array[9, 7, 5, 11, 12, 2, 14, 3, 10, 6]
+
+q = s(0)
+
+key = array[e] => 6 
+
+> for i in range(s, e):
+>
+> > if(key > array[i]):
+> >
+> > > swap(array, i, q)
+> > >
+> > > q += 1
+>
+> swap(array, q, e)
+>
+> return q
+
+[9, 7, 5, 11, 12, 2, 14, 3, 10, (6)]
+
+[**9**, 7, 5, 11, 12, 2, 14, 3, 10, (6)] 	=> i = 0, q = 0 ***(9 > 6)***
+
+[9, **7**, 5, 11, 12, 2, 14, 3, 10, (6)] 	=> i = 1, q = 0 ***(7 > 6)***
+
+[9, 7, **5**, 11, 12, 2, 14, 3, 10, (6)] 	=> i = 2, q = 0 ***(5 < 6)***	=> swap(array[i], array[q]) ***q += 1***
+
+[5|, 7, 9, **11**, 12, 2, 14, 3, 10, (6)] 	=> i = 3, q = 1 ***(11 > 6)***
+
+[5|, 7, 9, 11, **12**, 2, 14, 3, 10, (6)] 	=> i = 4, q = 1 ***(12 > 6)***
+
+[5|, 7, 9, 11, 12, **2**, 14, 3, 10, (6)] 	=> i = 5, q = 1 ***(2 < 6)***	=> swap(array[i], array[q]) ***q += 1***
+
+[5, 2|, 9, 11, 12, 7, **14**, 3, 10, (6)]	=> i = 6, q = 2 ***(14 > 6)***
+
+[5, 2|, 9, 11, 12, 7, 14, **3**, 10, (6)]	=> i = 7, q = 2 ***(3 < 6)***	=> swap(array[i], array[q]) ***q += 1***
+
+[5, 2, 3|, 11, 12, 7, 14, 9, **10**, (6)]	=> i = 8, q = 3 ***(10 > 6)***
+
+***Sorted Sub-Array = [5, 2, 3|, 11, 12, 7, 14, 9, 10] return q = 3*** 
+
+
+
 ### Example for merge function ***mergeArray(array, start, mid, end)***
 
 Initial array [1, 3, 35, 44, 0, 2, 12, 15]
